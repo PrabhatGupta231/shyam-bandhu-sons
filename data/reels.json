@@ -1,0 +1,62 @@
+[
+  {
+    "id": "reel-1794756640416",
+    "url": "https://www.instagram.com/reel/DNYNsuDJ2In/?exln=MWtsb2EyNWxjcDFndg==",
+    "title": "Showroom Exclusive Reel",
+    "category": "bridal",
+    "type": "mp4",
+    "directVideoUrl": "public/videos/reels/reel_DNYNsuDJ2In_1794751908573.mp4",
+    "embedUrl": "https://www.instagram.com/reel/DNYNsuDJ2In/embed/",
+    "active": true,
+    "likes": "10.5k Views",
+    "date": "Nov 2026"
+  },
+  {
+    "id": "reel-1",
+    "url": "https://www.instagram.com/reel/C-bridal-lehenga-walk/",
+    "title": "Royal Bridal Lehenga Walk • Tedhi Puliya Lounge",
+    "category": "bridal",
+    "type": "mp4",
+    "directVideoUrl": "public/videos/reel-bridal-lehenga.mp4",
+    "embedUrl": "https://www.instagram.com/reel/C-bridal-lehenga-walk/embed/",
+    "active": true,
+    "likes": "15.4k Views",
+    "date": "November 2026"
+  },
+  {
+    "id": "reel-2",
+    "url": "https://www.instagram.com/reel/C-banarasi-gold-zari/",
+    "title": "Master Banarasi Weave & Real Gold Zari Drape",
+    "category": "women",
+    "type": "mp4",
+    "directVideoUrl": "public/videos/reel-banarasi-saree.mp4",
+    "embedUrl": "https://www.instagram.com/reel/C-banarasi-gold-zari/embed/",
+    "active": true,
+    "likes": "21.8k Views",
+    "date": "November 2026"
+  },
+  {
+    "id": "reel-3",
+    "url": "https://www.instagram.com/reel/C-regal-groom-sherwani/",
+    "title": "Regal Heritage Groom Sherwani Trials",
+    "category": "men",
+    "type": "mp4",
+    "directVideoUrl": "public/videos/reel-heritage-couture.mp4",
+    "embedUrl": "https://www.instagram.com/reel/C-regal-groom-sherwani/embed/",
+    "active": true,
+    "likes": "11.2k Views",
+    "date": "October 2026"
+  },
+  {
+    "id": "reel-4",
+    "url": "https://www.instagram.com/reel/C-kids-festive-twirl/",
+    "title": "Kids Festive Twirl & Royal Ensemble Showcase",
+    "category": "kids",
+    "type": "mp4",
+    "directVideoUrl": "public/videos/reel-bridal-lehenga.mp4",
+    "embedUrl": "https://www.instagram.com/reel/C-kids-festive-twirl/embed/",
+    "active": true,
+    "likes": "9.5k Views",
+    "date": "October 2026"
+  }
+]

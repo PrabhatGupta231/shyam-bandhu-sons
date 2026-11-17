@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shyam Bandhu &amp; Sons | Deals Exclusively In: Suit • Saree • Lehenga • Gown • Kids Wear • Lucknow</title>
+  <meta name="description"
+    content="Visit Shyam Bandhu & Sons, Lucknow's premier family fashion showroom across Nakkhas and Tedhi Puliya, Kursi Road. Deals exclusively in Suits, Sarees, Lehengas, Designer Gowns, and Kids' Wear.">
+
+  <!-- Favicon with Royal Tiara & SB Monogram -->
+  <link rel="icon" type="image/svg+xml" href="public/images/favicon.svg">
+
+  <!-- Luxury Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aladin&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Aladin&family=Berkshire+Swash&family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       TOP ANNOUNCEMENT BAR (Local Showroom Info)
+       ========================================================================== -->
+  <aside class="announcement-bar" aria-label="Showroom Announcement" style="display: none;">
+    <div class="announcement-ticker">
+      <span id="announcement-text">Deals in: Saree, Lehenga, Indo-Western,
+        Dresses, Frock, Suits, Gown &amp; Kids Wear • Nakkhas &amp; Tedhi Puliya, Lucknow • Call: 9450646328,
+        9889340888</span>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       TOP UTILITY BAR (Store Hours, Phone & Admin Portal)
+       ========================================================================== -->
+  <div class="utility-bar" style="display: none;">
+    <div class="container utility-inner">
+      <div class="utility-left">
+        <span class="utility-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>Showroom Timings: <strong class="store-timings-display">10:30 AM – 9:00 PM (Open All 7
+              Days)</strong></span>
+        </span>
+        <span style="color: var(--border-light);">|</span>
+        <a href="tel:+919450646328" class="utility-link store-phone-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+            </path>
+          </svg>
+          <span>Call Showroom: <strong class="store-phone-display">9450646328, 9889340888</strong></span>
+        </a>
+      </div>
+      <div class="utility-right">
+        <a href="#store-location-section" class="utility-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Showrooms: Nakkhas &amp; Tedhi Puliya, Lucknow</span>
+        </a>
+        <span style="color: var(--border-light);">|</span>
+        <a href="admin.html" class="utility-link admin-portal-link" title="Open Store Management CMS Panel">
+          <span>⚙️ Admin Panel / CMS</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MAIN STICKY HEADER
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container header-main-row">
+      <!-- Left Column: Location / Heritage Badge -->
+      <div class="header-left-col">
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open mobile menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <span class="header-location-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Lucknow • Nakkhas &amp; Tedhi Puliya</span>
+        </span>
+      </div>
+
+      <!-- Center Column: Primary Brand Identity (Exact Signboard Match: Royal Tiara + SB Monogram + 2-Line Typography + Byline) -->
+      <div class="brand-logo-container">
+        <a href="#home" class="brand-logo-link" id="brand-logo-text" aria-label="Shyam Bandhu &amp; Sons Home">
+          <div class="brand-main-lockup">
+            <img src="public/images/shyam-bandhu-tiara-logo.png" alt="Shyam Bandhu &amp; Sons Royal Tiara &amp; S Logo"
+              class="brand-emblem-img brand-emblem-svg" id="brand-header-logo">
+            <div class="brand-text-block">
+              <span class="brand-name-single brand-name-top">Shyam Bandhu &amp; Sons</span>
+              <span class="brand-byline">By : Raj Kamal</span>
+            </div>
+          </div>
+        </a>
+        <span class="brand-tagline" id="brand-tagline-text">DEALS EXCLUSIVELY IN: SAREE • LEHENGA • INDO-WESTERN •
+          DRESSES • FROCK • SUITS • GOWN • KIDS WEAR</span>
+      </div>
+
+      <!-- Right Column: Book Visit CTA -->
+      <div class="header-right-action">
+        <a href="#store-location-section" class="btn-book-visit-header">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Book Store Visit</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         OFFLINE SHOWROOM NAVIGATION MENU (Single-Line Clean Bar)
+         HOME | WOMEN'S WEAR | MEN'S WEAR | KIDS WEAR | SHOWROOM & GALLERY | BLOGS & ARTICLES | STORE LOCATION & CONTACT
+         ========================================================================== -->
+    <nav class="main-nav" aria-label="Showroom Navigation">
+      <div class="container main-nav-container">
+        <ul class="nav-links-list">
+          <li class="nav-item active"><a href="#home" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#collections-section" class="nav-link nav-filter-link"
+              data-category="women">Women's Wear <span class="nav-badge-pill">Bridal &amp; Ethnic</span></a></li>
+          <li class="nav-item"><a href="#collections-section" class="nav-link nav-filter-link" data-category="men">Men's
+              Wear <span class="nav-badge-pill">Royal</span></a></li>
+          <li class="nav-item"><a href="#collections-section" class="nav-link nav-filter-link"
+              data-category="kids">Kids' Wear <span class="nav-badge-pill">Festive</span></a></li>
+          <li class="nav-item"><a href="gallery.html" class="nav-link">Showroom &amp; Gallery <span
+                class="nav-badge-pill">315+ Looks</span></a></li>
+          <li class="nav-item"><a href="#showroom-reels-section" class="nav-link">Showroom Reels <span
+                class="nav-badge-pill">Live</span></a></li>
+          <li class="nav-item"><a href="#articles-section" class="nav-link">Blogs &amp; Articles</a></li>
+          <li class="nav-item"><a href="#store-location-section" class="nav-link nav-link-contact">Store Location &amp;
+              Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+    <div class="mobile-nav-box">
+      <div class="mobile-nav-header">
+        <h4 style="font-family: var(--font-serif); font-size: 1.2rem; margin: 0;">Menu</h4>
+        <button id="mobile-nav-close" class="mobile-nav-close-btn" aria-label="Close menu">✕</button>
+      </div>
+      <ul class="mobile-nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#collections-section" class="nav-filter-link" data-category="women">Women's Wear (Bridal &amp; Ethnic)</a></li>
+        <li><a href="#collections-section" class="nav-filter-link" data-category="men">Men's Wear (Royal Couture)</a></li>
+        <li><a href="#collections-section" class="nav-filter-link" data-category="kids">Kids' Wear (Festive &amp; Party)</a></li>
+        <li><a href="gallery.html">Showroom &amp; Gallery (315+ Looks)</a></li>
+        <li><a href="#showroom-reels-section">Showroom Reels (Live Videos)</a></li>
+        <li><a href="#articles-section">Blogs &amp; Articles</a></li>
+        <li><a href="#store-location-section">Store Location &amp; Contact</a></li>
+        <li><a href="admin.html" style="color: var(--accent-maroon);">⚙️ Admin Panel / CMS</a></li>
+      </ul>
+      <div style="margin-top: auto; padding-top: 1rem;">
+        <a href="https://api.whatsapp.com/send?phone=919450646328&text=Hello%20Shyam%20Bandhu%20%26%20Sons%20(By%20Raj%20Kamal),%20I%20would%20like%20to%20enquire%20about%20visiting%20your%20showroom." target="_blank" class="btn-card-whatsapp"
+          style="width: 100%; text-align: center; padding: 0.85rem; justify-content: center; box-sizing: border-box;">
+          <span>💬 WhatsApp Showroom</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       CINEMATIC AUTOPLAY SHOWROOM VIDEO REEL (Placed Before Hero Carousel Slider)
+       ========================================================================== -->
+  <section class="hero-video-section" id="showroom-reel-section" aria-label="Showroom Cinematic Fashion Reel">
+    <div class="video-container-wrap">
+      <!-- Autoplaying Showroom Video -->
+      <video class="hero-bg-video" id="hero-showroom-video" autoplay muted loop playsinline preload="auto" poster="public/images/showroom-video-poster.jpg">
+        <source src="public/videos/showroom-cinematic-hd.mp4" type="video/mp4">
+        <source src="public/videos/showroom-cinematic.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Luxury Contrast & Cinematic Vignette Overlay -->
+      <div class="video-hero-overlay"></div>
+
+      <!-- Seamless 160px Bottom Fade-out Gradient Overlay -->
+      <div class="video-bottom-blend"></div>
+
+      <!-- Side Animated Content Card -->
+      <div class="container video-content-wrapper">
+        <div class="video-side-card">
+          <!-- Animated Golden Badge -->
+          <div class="video-badge-pill">
+            <span class="live-dot-pulse"></span>
+            <span class="badge-text">✦ EXCLUSIVE SHOWROOM REEL • LUCKNOW</span>
+          </div>
+
+          <!-- Animated Main Title -->
+          <h2 class="video-card-title">
+            The Royal Atelier of <br>
+            <span class="video-title-highlight">Bridal &amp; Haute Couture</span>
+          </h2>
+
+          <!-- Animated Description -->
+          <p class="video-card-desc">
+            Immerse yourself in our live showroom creations: handcrafted bridal lehengas, pure Banarasi silk sarees, bespoke groom sherwanis, and luxury festive wear in Lucknow.
+          </p>
+
+          <!-- Feature Pills -->
+          <div class="video-features-row">
+            <span class="video-feature-chip">✨ Multi-Floor Bridal Lounge</span>
+            <span class="video-feature-chip">👑 Bespoke Fitting Suites</span>
+            <span class="video-feature-chip">🏛️ Nakkhas &amp; Tedhi Puliya</span>
+          </div>
+
+          <!-- Animated Action Buttons -->
+          <div class="video-actions-row">
+            <a href="#collections-section" class="btn-video-primary">
+              <span>Explore Collections</span>
+              <span class="btn-arrow">↓</span>
+            </a>
+            <a href="#store-location-section" class="btn-video-outline">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Book Store Visit</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Video Audio & Playback Controls -->
+      <div class="video-control-floater">
+        <button id="btn-toggle-video-sound" class="btn-video-ctrl" aria-label="Mute or Unmute Video Sound" title="Toggle Sound">
+          <span id="sound-icon">🔇</span>
+          <span id="sound-text" class="ctrl-label">Sound Off</span>
+        </button>
+        <button id="btn-toggle-video-play" class="btn-video-ctrl" aria-label="Pause or Play Video" title="Pause / Play Video">
+          <span id="play-icon">⏸</span>
+          <span id="play-text" class="ctrl-label">Playing</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SUBTLE ROYAL GOLD ORNAMENTAL DIVIDER (Centered on Transition Seam)
+       ========================================================================== -->
+  <div class="hero-transition-divider" aria-hidden="true">
+    <div class="transition-hairline"></div>
+    <div class="transition-pill-emblem">
+      <span>✦ SIGNATURE SHOWROOM COLLECTIONS ✦</span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HERO BANNER (Complete Family Fashion Showroom)
+       ========================================================================== -->
+  <section class="hero-section" id="home" aria-label="Hero Carousel">
+    <!-- Seamless 100px Top Fade-in Gradient Overlay -->
+    <div class="hero-top-blend"></div>
+
+    <div class="hero-slider-track" id="hero-slider-track">
+      <!-- Default Active Slide #1: Women's Bridal & Ethnic Wear (Instant visibility on page load) -->
+      <div class="hero-slide active">
+        <img class="hero-slide-bg" src="public/images/bridal-girl-hero.jpg"
+          alt="Women's Bridal Lehengas, Designer Sarees &amp; Ethnic Gowns">
+        <div class="hero-overlay"></div>
+        <div class="hero-slide-container">
+          <div class="hero-content">
+            <span class="hero-subtitle">Women's Bridal, Festive &amp; Heritage Fashion</span>
+            <h1 class="hero-title">Women's Bridal Lehengas, Designer Sarees &amp; Ethnic Gowns</h1>
+            <p class="hero-desc">Welcome to Shyam Bandhu &amp; Sons (By : Raj Kamal), Lucknow. Deals exclusively in
+              breathtaking Bridal Lehengas, pure Silk Sarees, Cocktail Gowns, Designer Suits, and adorable Kids' Festive
+              Wear.</p>
+            <div class="hero-actions">
+              <a href="#collections-section" class="btn-hero-primary">Explore Collections</a>
+              <a href="#store-location-section" class="btn-hero-outline">Get Store Directions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Showroom Highlight Glassmorphism Card (Bottom-Right) -->
+    <a href="#store-location-section" class="hero-showroom-badge" title="View Showrooms in Lucknow">
+      <div class="showroom-badge-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+      </div>
+      <div class="showroom-badge-content">
+        <span class="showroom-badge-title">2 Flagship Showrooms in Lucknow</span>
+        <span class="showroom-badge-locations">Nakkhas &bull; Tedhi Puliya, Kursi Road</span>
+      </div>
+      <span class="showroom-badge-arrow">→</span>
+    </a>
+
+    <!-- Slider Controls -->
+    <div class="hero-controls">
+      <div class="hero-dots" id="hero-dots-container"></div>
+      <div style="display: flex; gap: 0.5rem;">
+        <button class="hero-arrow" id="hero-prev-btn" aria-label="Previous slide">←</button>
+        <button class="hero-arrow" id="hero-next-btn" aria-label="Next slide">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       OUR FLAGSHIP SHOWROOMS IN LUCKNOW (Dedicated Section per Blueprint)
+       Tedhi Puliya (Kursi Road) & Nakkhas Showrooms
+       ========================================================================== -->
+  <section class="flagship-showrooms-section" id="flagship-showrooms" aria-label="Our Flagship Showrooms">
+    <div class="container">
+      <div class="section-header flagship-header">
+        <span class="section-pre-title">Royal Couture &amp; Showroom Experience</span>
+        <h2 class="section-main-title">Our Flagship Showrooms in Lucknow</h2>
+        <div class="title-gold-divider"><span>✦</span></div>
+        <p class="section-subtitle">
+          Visit Shyam Bandhu &amp; Sons (By : Raj Kamal) across our two premier showrooms in Lucknow. Explore
+          multi-floor haute couture collections spanning bridal lehengas, authentic Banarasi sarees, custom sherwanis,
+          party gowns, and festive kids' wear in a grand royal atmosphere.
+        </p>
+      </div>
+
+      <!-- Main Showcase Bento Grid -->
+      <div class="flagship-showcase-grid">
+        <!-- Left: Real Showroom Facade & Illuminated Night View Photo Card -->
+        <div class="flagship-hero-card">
+          <div class="flagship-image-wrapper">
+            <img src="public/images/showroom-exterior-pillars.jpg"
+              alt="Shyam Bandhu &amp; Sons Grand Showroom Facade Lucknow" class="flagship-main-img" id="flagship-showcase-img">
+            <div class="flagship-img-overlay"></div>
+            <div class="flagship-badge-pill">
+              <span class="badge-dot"></span>
+              <span>2 Flagship Locations in Lucknow • Open All 7 Days</span>
+            </div>
+            <div class="flagship-img-caption">
+              <span class="flagship-caption-tag">Official Flagship Showroom</span>
+              <h3 class="flagship-caption-title">Shyam Bandhu &amp; Sons <span
+                  style="font-size: 0.9rem; font-weight: normal; opacity: 0.9;">(By : Raj Kamal)</span></h3>
+              <p class="flagship-caption-desc">Deals Exclusively In: Saree • Lehenga • Indo-Western • Dresses • Frock •
+                Suits • Gown • Kids Wear</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: The 2 Prime Showroom Branches in Lucknow -->
+        <div class="flagship-branches-col">
+          <!-- Branch 1: Tedhi Puliya -->
+          <div class="branch-card-modern">
+            <div class="branch-badge-row">
+              <span class="branch-pill-primary">Flagship Mega Showroom</span>
+              <span class="branch-timing-pill">10:30 AM – 9:00 PM</span>
+            </div>
+            <h3 class="branch-card-name">Tedhi Puliya, Kursi Road Showroom</h3>
+            <p class="branch-card-address">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>M.M.S - 2/15-16 Sector - C, Tedhi Puliya, Kursi Road, Lucknow - 226022</span>
+            </p>
+            <div class="branch-card-highlights">
+              <span class="branch-feat">✨ Multi-Floor Bridal Suites</span>
+              <span class="branch-feat">✨ Designer Gowns Lounge</span>
+              <span class="branch-feat">✨ Valet &amp; Parking</span>
+            </div>
+            <div class="branch-card-actions">
+              <a href="tel:+919450646328" class="btn-branch-call">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+                <span>Call 9450646328</span>
+              </a>
+              <a href="https://api.whatsapp.com/send?phone=919450646328&text=Hello%20Shyam%20Bandhu%20%26%20Sons,%20I%20would%20like%20to%20visit%20your%20Tedhi%20Puliya%20showroom."
+                target="_blank" class="btn-branch-whatsapp">
+                <span>WhatsApp Visit</span>
+              </a>
+              <a href="https://maps.google.com/?q=Shyam+Bandhu+Sons+Tedhi+Puliya+Kursi+Road+Lucknow" target="_blank"
+                class="btn-branch-map" title="Open Google Maps Directions">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                </svg>
+                <span>Directions</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Branch 2: Nakkhas -->
+          <div class="branch-card-modern">
+            <div class="branch-badge-row">
+              <span class="branch-pill-primary">Heritage Market Showroom</span>
+              <span class="branch-timing-pill">10:30 AM – 9:00 PM</span>
+            </div>
+            <h3 class="branch-card-name">Nakkhas Heritage Showroom</h3>
+            <p class="branch-card-address">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Shop no. 73, 74 New Market, Nakkhas, Lucknow</span>
+            </p>
+            <div class="branch-card-highlights">
+              <span class="branch-feat">✨ Handloom Banarasi Sarees</span>
+              <span class="branch-feat">✨ Pure Silk Katan</span>
+              <span class="branch-feat">✨ Ethnic Suits &amp; Frocks</span>
+            </div>
+            <div class="branch-card-actions">
+              <a href="tel:+919889340888" class="btn-branch-call">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+                <span>Call 9889340888</span>
+              </a>
+              <a href="https://api.whatsapp.com/send?phone=919889340888&text=Hello%20Shyam%20Bandhu%20%26%20Sons,%20I%20would%20like%20to%20visit%20your%20Nakkhas%20showroom."
+                target="_blank" class="btn-branch-whatsapp">
+                <span>WhatsApp Visit</span>
+              </a>
+              <a href="https://maps.google.com/?q=Shyam+Bandhu+Sons+Nakkhas+Lucknow" target="_blank"
+                class="btn-branch-map" title="Open Google Maps Directions">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                </svg>
+                <span>Directions</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Showroom Experience Pillars (Grand Bridal Lounge, Custom Tailoring, 2 Prime Locations) -->
+      <div class="showroom-pillars-strip">
+        <div class="pillar-box">
+          <div class="pillar-icon">👑</div>
+          <div class="pillar-text">
+            <h4>Grand Bridal Lounge</h4>
+            <p>Private VIP suites with full-length 360° mirrors for exclusive bride &amp; family consultations and
+              trials.</p>
+          </div>
+        </div>
+        <div class="pillar-box">
+          <div class="pillar-icon">✂️</div>
+          <div class="pillar-text">
+            <h4>Custom Tailoring &amp; Fitting</h4>
+            <p>In-house master karigars for flawless bespoke tailoring, custom blouse stitching, and heirloom styling.
+            </p>
+          </div>
+        </div>
+        <div class="pillar-box">
+          <div class="pillar-icon">🏛️</div>
+          <div class="pillar-text">
+            <h4>2 Prime Lucknow Locations</h4>
+            <p>Convenient flagship locations at Tedhi Puliya (Kursi Road) &amp; Nakkhas with over 10,000+ curated
+              outfits.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SHOWROOM PILLARS / ADVANTAGES
+       ========================================================================== -->
+  <section class="showroom-perks-section">
+    <div class="container">
+      <div class="perks-grid">
+        <div class="perk-card">
+          <div class="perk-icon-box">👨‍👩‍👧‍👦</div>
+          <div>
+            <h4 class="perk-title">Complete Family Fashion</h4>
+            <p class="perk-desc">Men, Women, and Kids grand collections under one luxurious multi-floor showroom.</p>
+          </div>
+        </div>
+        <div class="perk-card">
+          <div class="perk-icon-box">✂️</div>
+          <div>
+            <h4 class="perk-title">In-House Master Tailors</h4>
+            <p class="perk-desc">Complimentary in-store alterations and bespoke custom fit for sherwanis, suits &amp;
+              lehengas.</p>
+          </div>
+        </div>
+        <div class="perk-card">
+          <div class="perk-icon-box">✦</div>
+          <div>
+            <h4 class="perk-title">100% Genuine Handlooms</h4>
+            <p class="perk-desc">Authentic Silk Mark certified Kadwa Banarasi, pure matka silk, and rich Italian
+              fabrics.</p>
+          </div>
+        </div>
+        <div class="perk-card">
+          <div class="perk-icon-box">🏛️</div>
+          <div>
+            <h4 class="perk-title">Private VIP Trial Suites</h4>
+            <p class="perk-desc">Spacious air-conditioned trial lounges with 360° mirrors and personal family stylists.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CATEGORY SHOWCASE (Men, Women, Kids Dynamic Lookbook)
+       ========================================================================== -->
+  <section class="catalog-section" id="collections-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pre-title">Digital Showroom Lookbook</span>
+        <h2 class="section-main-title">Explore Family Collections</h2>
+        <p class="section-subtitle">Browse through our current in-store wedding and festive lines. Click any design to
+          check fabric details, available sizes, or verify in-store trial availability on WhatsApp.</p>
+      </div>
+
+      <!-- Main Family Tabs (Women's Wear Prioritized First) -->
+      <div class="family-tabs-bar">
+        <button class="family-tab-btn active" data-category="women">👗 Women's Wear (Bridal &amp; Silks)</button>
+        <button class="family-tab-btn" data-category="men">👔 Men's Wear (Imperial Atelier)</button>
+        <button class="family-tab-btn" data-category="kids">👶 Kids' Wear (Festive &amp; Party)</button>
+        <button class="family-tab-btn" data-category="all">✨ All Family Collections</button>
+      </div>
+
+      <!-- Sub-Category Filter Chips -->
+      <div class="subcat-chips-bar" id="subcat-chips-bar">
+        <!-- Injected dynamically by app.js -->
+      </div>
+
+      <!-- Catalog Count Display -->
+      <div style="text-align: right; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-muted);"
+        id="catalog-count-display">
+        Showing showroom creations on display
+      </div>
+
+      <!-- Catalog Grid -->
+      <div class="catalog-grid" id="catalog-grid">
+        <!-- Injected dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SHOWROOM REELS & VIDEO SHOWCASE (Clean 9:16 Auto-Playing Video Grid)
+       ========================================================================== -->
+  <section class="showroom-reels-section" id="showroom-reels-section" aria-label="Showroom Reels &amp; Video Showcase">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pre-title">✦ LIVE FROM OUR LUCKNOW SHOWROOMS ✦</span>
+        <h2 class="section-main-title">Showroom Reels &amp; Haute Couture in Motion</h2>
+        <p class="section-subtitle">Watch live bridal walkarounds, authentic pure Banarasi drape reels, and master karigari direct from our Lucknow showrooms. Clean, borderless video playback with direct WhatsApp enquiry.</p>
+      </div>
+
+      <!-- Category Filter Bar for Reels -->
+      <div class="reels-filter-bar" id="reels-filter-bar">
+        <button type="button" class="reel-filter-pill active" data-cat="all">All Reels (<span id="reels-count-all">0</span>)</button>
+        <button type="button" class="reel-filter-pill" data-cat="bridal">👑 Bridal Couture</button>
+        <button type="button" class="reel-filter-pill" data-cat="women">👗 Women's Ethnic</button>
+        <button type="button" class="reel-filter-pill" data-cat="men">🎩 Men's Sherwanis</button>
+        <button type="button" class="reel-filter-pill" data-cat="kids">✨ Kids' Festive</button>
+      </div>
+
+      <!-- 4-Column 9:16 Vertical Reel Grid -->
+      <div class="reels-showcase-grid" id="reels-showcase-grid">
+        <!-- Injected dynamically by app.js -->
+        <div style="grid-column: 1 / -1; text-align: center; color: #888; padding: 2rem;">Loading showroom reels...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SHOWROOM GALLERY & INSTAGRAM FEED SECTION (Masonry & Lightbox)
+       ========================================================================== -->
+  <section class="gallery-section" id="gallery-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pre-title">Live Instagram Archive &amp; Real Lookbooks</span>
+        <h2 class="section-main-title">Showroom Ambiance &amp; Customer Diaries</h2>
+        <p class="section-subtitle">Take a visual stroll through our official Instagram archive featuring over 300+
+          customer weddings, showroom interiors, and royal family collections. Click any look to zoom in and check
+          in-store availability.</p>
+      </div>
+
+      <!-- Animated Filter Tabs -->
+      <div class="gallery-filter-tabs-bar" id="home-gallery-filter-tabs"></div>
+
+      <!-- Masonry Grid for Homepage (Loaded dynamically from public/images/gallery) -->
+      <div class="masonry-grid" id="home-gallery-masonry-grid" style="margin-bottom: 3rem;"></div>
+
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <a href="gallery.html" class="btn-hero-primary" style="padding: 1.1rem 2.5rem; font-size: 0.9rem;">
+          <span>Explore All 315+ Instagram Looks in the Full Lookbook →</span>
+        </a>
+      </div>
+
+      <!-- Instagram Follow Card -->
+      <div class="instagram-banner-cta">
+        <h3 class="instagram-title">Connect with Us on Instagram</h3>
+        <p class="instagram-desc">Catch daily behind-the-scenes karigari reels, new festive arrivals, and real customer
+          wedding portraits on our official Instagram page.</p>
+        <a href="https://instagram.com/shyambandhuandsons" target="_blank" class="btn-instagram-follow instagram-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+          </svg>
+          <span class="instagram-handle-display">Follow @ShyamBandhuAndSons</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FASHION ARTICLES & STYLE GUIDES
+       ========================================================================== -->
+  <section class="articles-section" id="articles-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pre-title">Editorial Insights</span>
+        <h2 class="section-main-title">Fashion Articles &amp; Style Guides</h2>
+        <p class="section-subtitle">Read expert recommendations from our master couturiers on choosing the right wedding
+          silhouttes, pairing family palettes, and caring for heirloom handlooms.</p>
+      </div>
+
+      <div class="articles-grid" id="articles-grid">
+        <!-- Injected dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       STORE LOCATION & LOCAL CONTACT (Interactive Dual Showrooms & Appointment Form)
+       ========================================================================== -->
+  <section class="contact-section" id="store-location-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-pre-title">Visit Us In Person</span>
+        <h2 class="section-main-title">Lucknow Showrooms &amp; Local Contact</h2>
+        <p class="section-subtitle">Visit Shyam Bandhu &amp; Sons across our two premier showroom destinations in
+          Lucknow — Nakkhas and Tedhi Puliya, Kursi Road. Schedule an in-store trial so our dedicated floor consultants
+          can keep your shortlisted outfits ready.</p>
+      </div>
+
+      <div class="contact-layout-grid">
+        <!-- Dual Showrooms Card Wrapper -->
+        <div class="map-embed-wrapper">
+          <div class="showrooms-dual-grid">
+            <!-- Branch 1: Nakkhas Flagship -->
+            <div class="showroom-branch-card">
+              <div class="showroom-branch-badge">FLAGSHIP SHOWROOM</div>
+              <h3 class="showroom-branch-title">Nakkhas, Lucknow</h3>
+              <div class="showroom-branch-spec">Deals in: Saree • Lehenga • Indo-Western • Dresses • Frock • Suits •
+                Gown • Kids Wear</div>
+              <p class="showroom-branch-address">
+                <strong>Shop no. 73, 74 new market Nakkhas</strong><br>
+                Lucknow (Lko), Uttar Pradesh<br>
+                <span style="color: var(--accent-gold); font-size: 0.82rem;">📞 9450646328</span>
+              </p>
+              <a href="https://maps.google.com/?q=Shop+no+73+74+new+market+Nakkhas+Lucknow" target="_blank"
+                class="btn-branch-directions">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                </svg>
+                <span>Google Maps Directions</span>
+              </a>
+            </div>
+
+            <!-- Branch 2: Kursi Road / Tedhi Puliya -->
+            <div class="showroom-branch-card">
+              <div class="showroom-branch-badge">SHOWROOM BRANCH</div>
+              <h3 class="showroom-branch-title">Tedhi Puliya, Kursi Road</h3>
+              <div class="showroom-branch-spec">Deals in: Saree • Lehenga • Indo-Western • Dresses • Frock • Suits •
+                Gown • Kids Wear</div>
+              <p class="showroom-branch-address">
+                <strong>M.M.S - 2/15-16 Sector - C, Tedhi Puliya, Kursi Road</strong><br>
+                Lucknow - 226022, Uttar Pradesh<br>
+                <span style="color: var(--accent-gold); font-size: 0.82rem;">📞 9889340888</span>
+              </p>
+              <a href="https://maps.google.com/?q=MMS+2+15+16+Sector+C+Tedhi+Puliya+Kursi+Road+Lucknow" target="_blank"
+                class="btn-branch-directions">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                </svg>
+                <span>Google Maps Directions</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="store-hours-bar">
+            <div class="store-hours-item">
+              <strong>Showroom Hours</strong>
+              <span class="store-timings-display">10:30 AM – 9:00 PM (Open All 7 Days)</span>
+            </div>
+            <div class="store-hours-item">
+              <strong>Direct Call / WhatsApp</strong>
+              <span class="store-phone-display">9450646328, 9889340888</span>
+            </div>
+            <div class="store-hours-item">
+              <strong>Family In-Store Trials</strong>
+              <span>Private Trial Suites Available</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- In-Store Appointment Form -->
+        <div class="appointment-card" id="appointment-form-box">
+          <h3 class="appointment-form-title">Book an In-Store Trial</h3>
+          <p class="appointment-form-desc">Reserve a trial suite with our senior stylists at either of our Lucknow
+            showrooms. We will keep your selected designs ready before you arrive.</p>
+
+          <form id="store-appointment-form">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input class="form-input" type="text" id="appt-name-input" placeholder="e.g. Rajesh &amp; Sunita Sharma"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Select Showroom Branch *</label>
+              <select class="form-input" id="appt-branch-input" required>
+                <option value="Shop no. 73, 74 new market Nakkhas, Lucknow (Ph: 9450646328)">Branch 1: Shop no. 73, 74
+                  New Market Nakkhas, Lucknow (Ph: 9450646328)</option>
+                <option value="M.M.S - 2/15-16 Sector - C, Tedhi Puliya, Kursi Road, Lucknow - 226022 (Ph: 9889340888)">
+                  Branch 2: M.M.S - 2/15-16 Sector - C, Tedhi Puliya, Kursi Road, Lucknow (Ph: 9889340888)</option>
+              </select>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">WhatsApp Contact *</label>
+                <input class="form-input" type="tel" id="appt-phone-input" placeholder="e.g. 9450646328" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Preferred Date *</label>
+                <input class="form-input" type="date" id="appt-date-input" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Exclusively Exploring *</label>
+              <select class="form-input" id="appt-section-input" required>
+                <option value="Complete Family Shopping (Saree, Lehenga, Indo-Western, Dresses, Gown &amp; Kids)">
+                  Complete Family Shopping (Saree, Lehenga, Indo-Western, Dresses, Gown &amp; Kids)</option>
+                <option value="Exclusive Sarees &amp; Bridal Lehengas">Exclusive Sarees &amp; Bridal Lehengas</option>
+                <option value="Indo-Western Sets &amp; Designer Dresses">Indo-Western Sets &amp; Designer Dresses
+                </option>
+                <option value="Party Frocks &amp; Evening Gowns">Party Frocks &amp; Evening Gowns</option>
+                <option value="Kids' Festive &amp; Ethnic Wear">Kids' Festive &amp; Ethnic Wear (Boys &amp; Girls)
+                </option>
+                <option value="Men's Ethnic Wear &amp; Sherwani Atelier">Men's Ethnic Wear &amp; Suits</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Shortlisted Outfits or Style Preferences (Optional)</label>
+              <input class="form-input" type="text" id="appt-interest-input"
+                placeholder="e.g. Red Bridal Lehenga, Pure Zari Silk Saree, Reception Gown">
+            </div>
+
+            <button type="submit" class="btn-submit-appointment">
+              <span>Reserve Showroom Trial Suite</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       LOCALIZED SHOWROOM FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Brand Info -->
+        <div>
+          <div class="footer-brand-lockup">
+            <img src="public/images/shyam-bandhu-emblem.svg" alt="Shyam Bandhu &amp; Sons Royal Tiara &amp; SB Monogram"
+              class="footer-emblem-img">
+            <div class="footer-brand-text">
+              <span class="footer-name-top">Shyam Bandhu</span>
+              <span class="footer-name-bottom">&amp; Sons</span>
+              <span class="footer-byline">By : Raj Kamal</span>
+            </div>
+          </div>
+          <span class="footer-tagline">DEALS EXCLUSIVELY IN: SAREE • LEHENGA • INDO-WESTERN • DRESSES • FROCK • SUITS •
+            GOWN • KIDS WEAR</span>
+          <p class="footer-about">
+            A premier family fashion destination in Lucknow founded by Raj Kamal, offering exquisite collections in
+            Sarees, Lehengas, Indo-Western, Dresses, Frocks, Suits, Evening Gowns, and Kids' Wear across our two grand
+            showrooms in Nakkhas and Tedhi Puliya, Kursi Road. All custom fitting and trials handled in-house with
+            master karigars.
+          </p>
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="https://instagram.com/shyam_bandhu_andsons" target="_blank" class="instagram-link"
+              style="color: var(--accent-gold); font-size: 0.85rem; font-weight: 700;">Instagram:
+              @shyam_bandhu_andsons</a>
+          </div>
+        </div>
+
+        <!-- Family Sections (Women's Wear First) -->
+        <div>
+          <h4 class="footer-col-title">Showroom Sections</h4>
+          <ul class="footer-links-list">
+            <li><a href="#collections-section" class="nav-filter-link" data-category="women">Bridal Lehengas &amp;
+                Gowns</a></li>
+            <li><a href="#collections-section" class="nav-filter-link" data-category="women">Exclusive Sarees &amp;
+                Suits</a></li>
+            <li><a href="#collections-section" class="nav-filter-link" data-category="women">Indo-Western &amp; Party
+                Dresses</a></li>
+            <li><a href="#collections-section" class="nav-filter-link" data-category="kids">Kids' Party Frocks &amp;
+                Lehengas</a></li>
+            <li><a href="#collections-section" class="nav-filter-link" data-category="men">Men's Sherwanis &amp;
+                Suits</a></li>
+            <li><a href="gallery.html">315+ Curated Instagram Looks</a></li>
+          </ul>
+        </div>
+
+        <!-- Quick Showroom Links -->
+        <div>
+          <h4 class="footer-col-title">Showroom Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="#store-location-section">In-Store Master Alterations</a></li>
+            <li><a href="#store-location-section">Private VIP Trial Suites</a></li>
+            <li><a href="#store-location-section">Wedding Trousseau Consultation</a></li>
+            <li><a href="gallery.html">Official Instagram Lookbook</a></li>
+            <li><a href="#articles-section">Styling Tips &amp; Fabric Guides</a></li>
+            <li><a href="admin.html" style="color: var(--accent-gold);">⚙️ Store Admin CMS Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Showroom Contact -->
+        <div>
+          <h4 class="footer-col-title">Showroom Locations</h4>
+          <div class="footer-contact-item">
+            <span>📍</span>
+            <div>
+              <strong style="color: #FFF;">Branch 1 (Nakkhas):</strong><br>
+              <span>Shop no. 73, 74 new market Nakkhas, Lucknow</span><br>
+              <a href="tel:+919450646328" style="color: var(--accent-gold); font-size: 0.85rem;">📞 9450646328</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <span>📍</span>
+            <div>
+              <strong style="color: #FFF;">Branch 2 (Kursi Road):</strong><br>
+              <span>M.M.S - 2/15-16 Sector - C, Tedhi Puliya, Kursi Road, Lucknow - 226022</span><br>
+              <a href="tel:+919889340888" style="color: var(--accent-gold); font-size: 0.85rem;">📞 9889340888</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <span>🕒</span>
+            <div>
+              <strong style="color: #FFF;">Showroom Hours:</strong><br>
+              <span class="store-timings-display">10:30 AM – 9:00 PM (Daily)</span>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <span>📞</span>
+            <div>
+              <strong style="color: #FFF;">Direct Showroom Calling:</strong><br>
+              <span class="store-phone-display">9450646328, 9889340888</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="footer-bottom-row">
+        <div>
+          &copy; 2026 Shyam Bandhu &amp; Sons (By : Raj Kamal). Strictly Offline &amp; In-Store Retail.
+        </div>
+        <div>
+          <a href="admin.html"
+            style="color: var(--accent-gold); text-decoration: underline; margin-right: 1.5rem;">Owner CMS Login</a>
+          <span>Nakkhas • Tedhi Puliya, Kursi Road, Lucknow (Lko)</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       DETAIL MODAL (No Prices, Only In-Store Fabric & Size Details)
+       ========================================================================== -->
+  <div class="modal-overlay" id="detail-modal" aria-label="Item Details">
+    <div id="detail-modal-container" style="width: 100%; display: flex; justify-content: center;">
+      <!-- Injected dynamically by app.js -->
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FLOATING WHATSAPP CHAT BUTTON
+       ========================================================================== -->
+  <a href="https://api.whatsapp.com/send?phone=919450646328&text=Hello%20Shyam%20Bandhu%20%26%20Sons%20(By%20Raj%20Kamal),%20I%20would%20like%20to%20enquire%20about%20visiting%20your%20showroom."
+    target="_blank" class="floating-whatsapp-btn btn-general-whatsapp" aria-label="Chat on WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+    </svg>
+    <span>Chat with Showroom</span>
+  </a>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="gallery.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

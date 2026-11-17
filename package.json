@@ -1,0 +1,24 @@
+{
+  "name": "shyam-bandhu-and-sons",
+  "version": "1.0.0",
+  "description": "Shyam Bandhu & Sons - Flagship Offline Luxury Showroom & Lookbook",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test_suite.js"
+  },
+  "keywords": [
+    "shyam-bandhu",
+    "bridal",
+    "lehenga",
+    "banarasi-saree",
+    "lucknow",
+    "couture"
+  ],
+  "author": "Shyam Bandhu & Sons (By : Raj Kamal)",
+  "license": "ISC",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
+

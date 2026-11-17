@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 135" fill="#111111" stroke="#111111">
+  <!-- Symmetrical Royal Tiara Crown -->
+  <path d="M20,46 Q60,35 100,46 C96,43 78,39 60,39 C42,39 24,43 20,46 Z" stroke="none" />
+  <circle cx="28" cy="43.5" r="1.8" stroke="none" />
+  <circle cx="40" cy="41" r="1.8" stroke="none" />
+  <circle cx="52" cy="39.5" r="2" stroke="none" />
+  <circle cx="60" cy="39" r="2.4" stroke="none" />
+  <circle cx="68" cy="39.5" r="2" stroke="none" />
+  <circle cx="80" cy="41" r="1.8" stroke="none" />
+  <circle cx="92" cy="43.5" r="1.8" stroke="none" />
+
+  <path d="M60,9 C56,20 53,28 47,38 C52,37 60,37 73,38 C67,28 64,20 60,9 Z" stroke="none" />
+  <circle cx="60" cy="6" r="3.2" stroke="none" />
+  <circle cx="60" cy="2" r="1.5" stroke="none" />
+
+  <path d="M38,17 C37,24 40,31 46,38 C41,38 35,40 29,42 C32,34 34,25 38,17 Z" stroke="none" />
+  <circle cx="38" cy="14" r="2.6" stroke="none" />
+
+  <path d="M82,17 C83,24 80,31 74,38 C79,38 85,40 91,42 C88,34 86,25 82,17 Z" stroke="none" />
+  <circle cx="82" cy="14" r="2.6" stroke="none" />
+
+  <path d="M22,26 C24,32 26,37 28,42 C24,43 20,45 17,46 C18,39 20,33 22,26 Z" stroke="none" />
+  <circle cx="22" cy="23" r="2" stroke="none" />
+  <path d="M98,26 C96,32 94,37 92,42 C96,43 100,45 103,46 C102,39 100,33 98,26 Z" stroke="none" />
+  <circle cx="98" cy="23" r="2" stroke="none" />
+
+  <!-- Stylized Ornate 'S' (NO dotted circle) -->
+  <path d="M74,56 C70,53 62,52 54,53 C43,54 36,60 36,68 C36,75 42,79 50,82 C61,85 71,89 71,99 C71,110 61,118 49,118 C39,118 31,113 27,106 C25,103 24,99 24,96" 
+        fill="none" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="74" cy="56" r="3.5" stroke="none" />
+  <circle cx="24" cy="96" r="3" stroke="none" />
+
+  <!-- Nested Stylized 'B' Inside Lower Loop of 'S' -->
+  <path d="M44,91 L44,113" fill="none" stroke-width="3.8" stroke-linecap="round" />
+  <path d="M41.5,91 L46.5,91 M41.5,113 L47,113" fill="none" stroke-width="2" stroke-linecap="round" />
+  <path d="M44,91 C52,91 58,92.5 58,98 C58,103.5 52,104 44,104" fill="none" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M44,104 C54,104 60,105.5 60,111.5 C60,117.5 53,117.5 44,117.5" fill="none" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

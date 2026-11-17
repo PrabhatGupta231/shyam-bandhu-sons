@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="favBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1F1A17" />
+      <stop offset="100%" stop-color="#0E0C0B" />
+    </linearGradient>
+    <linearGradient id="favGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DFBD69" />
+      <stop offset="50%" stop-color="#FDF0CD" />
+      <stop offset="100%" stop-color="#C59B27" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="24" fill="url(#favBg)" stroke="#C59B27" stroke-width="2" />
+  <!-- Tiara -->
+  <path d="M24,44 Q60,32 96,44 C92,41 78,38 60,38 C42,38 28,41 24,44 Z" fill="url(#favGold)" />
+  <circle cx="60" cy="8" r="4" fill="url(#favGold)" />
+  <path d="M60,11 C57,20 54,27 48,39 C52,38 60,38 72,39 C66,27 63,20 60,11 Z" fill="url(#favGold)" />
+  <circle cx="38" cy="15" r="3" fill="url(#favGold)" />
+  <path d="M38,17 C38,24 41,31 46,38 C41,38 35,40 29,42 C31,33 34,25 38,17 Z" fill="url(#favGold)" />
+  <circle cx="82" cy="15" r="3" fill="url(#favGold)" />
+  <path d="M82,17 C82,24 79,31 74,38 C79,38 85,40 91,42 C89,33 86,25 82,17 Z" fill="url(#favGold)" />
+  <!-- S Monogram -->
+  <path d="M72,55 C68,53 62,52 56,53 C46,54 39,60 39,68 C39,75 45,79 53,82 C63,85 70,88 70,96 C70,104 62,109 52,109 C44,109 36,105 32,100"
+        fill="none" stroke="url(#favGold)" stroke-width="7" stroke-linecap="round" />
+  <!-- B Nested -->
+  <path d="M48,72 L48,101" stroke="url(#favGold)" stroke-width="3.5" stroke-linecap="round" />
+  <path d="M48,73 C57,73 63,75 63,81 C63,87 56,88 48,88" fill="none" stroke="url(#favGold)" stroke-width="3" stroke-linecap="round" />
+  <path d="M48,88 C59,88 66,90 66,96 C66,101 58,102 48,102" fill="none" stroke="url(#favGold)" stroke-width="3" stroke-linecap="round" />
+</svg>
