@@ -1,6 +1,7 @@
 /**
  * Shyam Bandhu & Sons - Static Development & Dynamic Gallery Server
  * Native Node.js HTTP Server - Zero External Dependencies
+ * Vercel Serverless Compatible
  */
 
 const http = require('http');
@@ -11,6 +12,9 @@ const { execFile } = require('child_process');
 const crypto = require('crypto');
 
 const PORT = process.env.PORT || 3000;
+
+// Use process.cwd() so Vercel serverless bundle resolves paths correctly
+const ROOT_DIR = process.cwd();
 
 // Admin authentication store (In-memory session registry with cryptographic tokens & expiry)
 // Map of token -> { token, username, name, role, createdAt, expiresAt }
@@ -127,30 +131,35 @@ const MIME_TYPES = {
 // ==========================================================================
 // PERSISTENT GALLERY ENGINE (backed by memory, tmp, data/gallery.json & gallery_manifest.json)
 // ==========================================================================
-const DATA_DIR = path.join(__dirname, 'data');
+const DATA_DIR = path.join(ROOT_DIR, 'data');
 const GALLERY_JSON = path.join(DATA_DIR, 'gallery.json');
-const MANIFEST_JSON = path.join(__dirname, 'gallery_manifest.json');
-const GALLERY_IMAGES_DIR = path.join(__dirname, 'public', 'images', 'gallery');
+const MANIFEST_JSON = path.join(ROOT_DIR, 'gallery_manifest.json');
+const GALLERY_IMAGES_DIR = path.join(ROOT_DIR, 'public', 'images', 'gallery');
 const BACKUP_TMP_JSON = path.join(os.tmpdir(), 'shyam_bandhu_gallery.json');
 
 let memoryGalleryItems = null;
 
 function initGalleryStorage() {
+  // Wrapped in try/catch — Vercel has a read-only filesystem at startup
   try {
     if (!fs.existsSync(DATA_DIR)) {
       fs.mkdirSync(DATA_DIR, { recursive: true });
     }
-  } catch (e) {}
+  } catch (e) {
+    console.warn('Read-only filesystem (data dir):', e.message);
+  }
 
   try {
     if (!fs.existsSync(GALLERY_JSON) && fs.existsSync(MANIFEST_JSON)) {
       fs.copyFileSync(MANIFEST_JSON, GALLERY_JSON);
     }
-  } catch (e) {}
+  } catch (e) {
+    console.warn('Read-only filesystem (gallery.json init):', e.message);
+  }
 }
 
-// Auto-initialize on module load
-initGalleryStorage();
+// Auto-initialize on module load (safe on Vercel read-only FS)
+try { initGalleryStorage(); } catch (e) { console.warn('initGalleryStorage skipped:', e.message); }
 
 function loadAllGalleryItems() {
   if (Array.isArray(memoryGalleryItems) && memoryGalleryItems.length > 0) {
@@ -223,20 +232,26 @@ function persistGalleryItems(items) {
   // Always persist to tmpdir so memory/restarts retain changes
   try {
     fs.writeFileSync(BACKUP_TMP_JSON, jsonStr, 'utf8');
-  } catch (e) {}
+  } catch (e) {
+    console.warn('Read-only filesystem (tmp gallery):', e.message);
+  }
 
-  // Try saving to data/gallery.json
+  // Try saving to data/gallery.json (may be read-only on Vercel)
   try {
     if (!fs.existsSync(DATA_DIR)) {
       fs.mkdirSync(DATA_DIR, { recursive: true });
     }
     fs.writeFileSync(GALLERY_JSON, jsonStr, 'utf8');
-  } catch (e) {}
+  } catch (e) {
+    console.warn('Read-only filesystem (gallery.json):', e.message);
+  }
 
   // Try updating gallery_manifest.json
   try {
     fs.writeFileSync(MANIFEST_JSON, jsonStr, 'utf8');
-  } catch (e) {}
+  } catch (e) {
+    console.warn('Read-only filesystem (gallery_manifest.json):', e.message);
+  }
 }
 
 function saveImageFromBase64(base64Str, originalFilename) {
@@ -267,10 +282,14 @@ function saveImageFromBase64(base64Str, originalFilename) {
     const targetPath = path.join(GALLERY_IMAGES_DIR, finalFilename);
     fs.writeFileSync(targetPath, buffer);
   } catch (e) {
+    // Fallback to tmpdir (Vercel read-only FS)
     try {
       const tmpPath = path.join(os.tmpdir(), finalFilename);
       fs.writeFileSync(tmpPath, buffer);
-    } catch (err) {}
+      console.warn('Image saved to tmpdir (read-only FS):', tmpPath);
+    } catch (err) {
+      console.warn('Could not save image anywhere:', err.message);
+    }
   }
 
   return {
@@ -282,7 +301,7 @@ function saveImageFromBase64(base64Str, originalFilename) {
 // ==========================================================================
 // PERSISTENT REELS ENGINE (backed by memory, tmp, and data/reels.json)
 // ==========================================================================
-const REELS_JSON = path.join(DATA_DIR, 'reels.json');
+const REELS_JSON = path.join(ROOT_DIR, 'data', 'reels.json');
 const BACKUP_TMP_REELS_JSON = path.join(os.tmpdir(), 'shyam_bandhu_reels.json');
 
 const DEFAULT_SEED_REELS = [
@@ -372,13 +391,17 @@ function persistReels(reels) {
   const jsonStr = JSON.stringify(reels, null, 2);
   try {
     fs.writeFileSync(BACKUP_TMP_REELS_JSON, jsonStr, 'utf8');
-  } catch (e) {}
+  } catch (e) {
+    console.warn('Read-only filesystem (tmp reels):', e.message);
+  }
   try {
     if (!fs.existsSync(DATA_DIR)) {
       fs.mkdirSync(DATA_DIR, { recursive: true });
     }
     fs.writeFileSync(REELS_JSON, jsonStr, 'utf8');
-  } catch (e) {}
+  } catch (e) {
+    console.warn('Read-only filesystem (reels.json):', e.message);
+  }
 }
 
 function resolveReelVideo(inputUrl, callback) {
@@ -416,9 +439,11 @@ function resolveReelVideo(inputUrl, callback) {
     const targetLocalPath = path.join(__dirname, 'public', 'videos', 'reels', uniqueFileName);
     const publicRelPath = `public/videos/reels/${uniqueFileName}`;
 
-    const reelsDir = path.join(__dirname, 'public', 'videos', 'reels');
+    const reelsDir = path.join(ROOT_DIR, 'public', 'videos', 'reels');
     if (!fs.existsSync(reelsDir)) {
-      try { fs.mkdirSync(reelsDir, { recursive: true }); } catch (e) {}
+      try { fs.mkdirSync(reelsDir, { recursive: true }); } catch (e) {
+        console.warn('Read-only filesystem (reels dir):', e.message);
+      }
     }
 
     // Check if a unique file specifically generated for this reel shortcode already exists
@@ -847,10 +872,10 @@ const server = http.createServer((req, res) => {
     let targetVideo = reel ? (reel.directVideoUrl || reel.url) : null;
 
     let localFile = null;
-    if (targetVideo && fs.existsSync(path.join(__dirname, targetVideo))) {
-      localFile = path.join(__dirname, targetVideo);
-    } else if (fs.existsSync(path.join(__dirname, `public/videos/reels/reel-${reelId}.mp4`))) {
-      localFile = path.join(__dirname, `public/videos/reels/reel-${reelId}.mp4`);
+    if (targetVideo && fs.existsSync(path.join(ROOT_DIR, targetVideo))) {
+      localFile = path.join(ROOT_DIR, targetVideo);
+    } else if (fs.existsSync(path.join(ROOT_DIR, `public/videos/reels/reel-${reelId}.mp4`))) {
+      localFile = path.join(ROOT_DIR, `public/videos/reels/reel-${reelId}.mp4`);
     }
 
     if (!localFile) {
@@ -916,10 +941,14 @@ const server = http.createServer((req, res) => {
         if (payload.videoBase64) {
           const cleanB64 = payload.videoBase64.replace(/^data:video\/[a-z0-9]+;base64,/, '');
           const filename = `reel_upload_${Date.now()}.mp4`;
-          const filePath = path.join(__dirname, 'public/videos/reels', filename);
-          const reelsDir = path.join(__dirname, 'public/videos/reels');
-          if (!fs.existsSync(reelsDir)) fs.mkdirSync(reelsDir, { recursive: true });
-          fs.writeFileSync(filePath, Buffer.from(cleanB64, 'base64'));
+          const filePath = path.join(ROOT_DIR, 'public/videos/reels', filename);
+          const reelsDir = path.join(ROOT_DIR, 'public/videos/reels');
+          try {
+            if (!fs.existsSync(reelsDir)) fs.mkdirSync(reelsDir, { recursive: true });
+            fs.writeFileSync(filePath, Buffer.from(cleanB64, 'base64'));
+          } catch (e) {
+            console.warn('Read-only filesystem (reel upload):', e.message);
+          }
           const publicRelPath = `public/videos/reels/${filename}`;
           const allReels = loadAllReels();
           const newReel = {
@@ -1056,8 +1085,8 @@ const server = http.createServer((req, res) => {
     reqPath = '/gallery.html';
   }
 
-  const safePath = path.normalize(path.join(__dirname, reqPath));
-  if (!safePath.startsWith(__dirname)) {
+  const safePath = path.normalize(path.join(ROOT_DIR, reqPath));
+  if (!safePath.startsWith(ROOT_DIR)) {
     res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
     return res.end('403 Forbidden: Access Denied');
   }
@@ -1127,12 +1156,18 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`======================================================`);
-  console.log(`✦ SHYAM BANDHU & SONS - OFFLINE SHOWROOM & LOOKBOOK`);
-  console.log(`✦ Server running at: http://localhost:${PORT}/`);
-  console.log(`✦ Gallery API at:    http://localhost:${PORT}/api/gallery`);
-  console.log(`✦ Gallery Page at:   http://localhost:${PORT}/gallery`);
-  console.log(`✦ Admin Panel at:    http://localhost:${PORT}/admin`);
-  console.log(`======================================================`);
-});
+// Export handler for Vercel Serverless Functions
+module.exports = server;
+
+// Only start listening when run directly (local development)
+if (require.main === module) {
+  server.listen(PORT, () => {
+    console.log(`======================================================`);
+    console.log(`✦ SHYAM BANDHU & SONS - OFFLINE SHOWROOM & LOOKBOOK`);
+    console.log(`✦ Server running at: http://localhost:${PORT}/`);
+    console.log(`✦ Gallery API at:    http://localhost:${PORT}/api/gallery`);
+    console.log(`✦ Gallery Page at:   http://localhost:${PORT}/gallery`);
+    console.log(`✦ Admin Panel at:    http://localhost:${PORT}/admin`);
+    console.log(`======================================================`);
+  });
+}
