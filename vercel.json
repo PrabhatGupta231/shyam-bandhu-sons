@@ -1,12 +1,60 @@
 {
   "version": 2,
   "builds": [
-    { "src": "server.js", "use": "@vercel/node" }
+    { "src": "server.js", "use": "@vercel/node" },
+    { "src": "public/**", "use": "@vercel/static" },
+    { "src": "*.html", "use": "@vercel/static" },
+    { "src": "styles.css", "use": "@vercel/static" },
+    { "src": "app.js", "use": "@vercel/static" },
+    { "src": "gallery.js", "use": "@vercel/static" },
+    { "src": "data.js", "use": "@vercel/static" },
+    { "src": "data/*.json", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/server.js" },
-    { "src": "/admin", "dest": "/server.js" },
-    { "src": "/gallery", "dest": "/server.js" },
-    { "src": "/(.*)", "dest": "/server.js" }
+    {
+      "src": "/api/(.*)",
+      "dest": "/server.js"
+    },
+    {
+      "src": "/gallery",
+      "dest": "/gallery.html"
+    },
+    {
+      "src": "/admin",
+      "dest": "/admin.html"
+    },
+    {
+      "src": "/styles.css",
+      "dest": "/styles.css",
+      "headers": { "Content-Type": "text/css; charset=utf-8" }
+    },
+    {
+      "src": "/app.js",
+      "dest": "/app.js",
+      "headers": { "Content-Type": "application/javascript; charset=utf-8" }
+    },
+    {
+      "src": "/gallery.js",
+      "dest": "/gallery.js",
+      "headers": { "Content-Type": "application/javascript; charset=utf-8" }
+    },
+    {
+      "src": "/data.js",
+      "dest": "/data.js",
+      "headers": { "Content-Type": "application/javascript; charset=utf-8" }
+    },
+    {
+      "src": "/data/(.*\\.json)",
+      "dest": "/data/$1",
+      "headers": { "Content-Type": "application/json; charset=utf-8" }
+    },
+    {
+      "src": "/public/(.*)",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
+    }
   ]
 }
