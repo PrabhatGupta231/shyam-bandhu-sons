@@ -4505,3 +4505,203 @@ video.reel-video-element {
   transform: translateY(-1px);
   box-shadow: 0 6px 16px rgba(37, 211, 102, 0.45);
 }
+
+
+/* ==========================================================================
+   MOBILE UI BUG FIXES — 375px–412px viewport (Commit: Fix mobile UI bugs)
+   ========================================================================== */
+
+/* ── BUG 1: Hero Section — Remove duplicate CTA buttons / fix text clipping ─
+   The .hero-slide is `position:absolute; inset:0` so its content is fully
+   inside the card. Any leaked duplicate buttons come from the global rule
+   `form, button, [class*="card"] { width:100% !important }` at ≤768px
+   stomping on `.btn-hero-primary` / `.btn-hero-outline` and causing layout
+   spill. We pin every hero text element inside the card with safe padding.  */
+@media (max-width: 480px) {
+  .hero-slide-container {
+    padding: 0 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-content {
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .hero-title,
+  .hero-subtitle,
+  .hero-desc {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* One clean CTA button group — no duplicates outside the card */
+  .hero-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 0.75rem !important;
+    padding: 0 !important;
+    margin-top: 1rem !important;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-outline {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    justify-content: center !important;
+    padding: 0.85rem 16px !important;
+    font-size: 0.82rem !important;
+    white-space: normal !important;
+    overflow: hidden !important;
+  }
+}
+
+/* ── BUG 2: Showroom Reels section heading invisible (dark text on dark bg) ── */
+.showroom-reels-section .section-main-title,
+.showroom-reels-section h2.section-main-title {
+  color: #FAF8F5 !important;
+  -webkit-text-fill-color: #FAF8F5 !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+}
+
+.showroom-reels-section .section-pre-title {
+  color: var(--accent-gold) !important;
+}
+
+.showroom-reels-section .section-subtitle {
+  color: #C8C0B5 !important;
+}
+
+/* ── BUG 3a: Reel videos appearing as thin strips — enforce full-cover sizing ─ */
+.reel-card {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.reel-card video,
+.reel-card .reel-video-element,
+video.reel-video-element {
+  position: absolute !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  z-index: 1 !important;
+  display: block !important;
+}
+
+/* ── BUG 3b: Remove oversized empty black gap below last reel card ──────────
+   The `.showroom-reels-section` has `padding-bottom: 6.5rem` on desktop.
+   On mobile this creates a giant empty black gap. Reduce it.             */
+@media (max-width: 768px) {
+  .showroom-reels-section {
+    padding-bottom: 2rem !important;
+  }
+
+  /* Also cap the reel grid so single-column cards don't overflow */
+  .reels-showcase-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .reel-card {
+    height: 420px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* ── BUG 4: Gallery filter buttons — overlapping circles → clean pill row ─── */
+@media (max-width: 768px) {
+  .gallery-filter-tabs-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    overflow-x: unset !important;
+    overflow: visible !important;
+    padding: 0.5rem 0 1rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .gallery-filter-btn {
+    /* Reset any position/size overrides that cause circle overlap */
+    position: static !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    border-radius: 999px !important;
+    padding: 8px 14px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+    gap: 4px !important;
+  }
+
+  .gallery-count-pill {
+    display: inline !important;
+    font-size: 11px !important;
+  }
+}
+
+/* ── BUG 5: @SHYAM_BANDHU_ANDSONS Instagram button overflows card on mobile ─ */
+@media (max-width: 768px) {
+  .instagram-banner-cta {
+    padding: 2rem 1.25rem !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .btn-instagram-follow {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 12px !important;
+    padding: 12px 14px !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: flex !important;
+  }
+
+  .btn-instagram-follow svg {
+    flex-shrink: 0 !important;
+  }
+
+  .instagram-handle-display {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: calc(100% - 28px) !important;
+  }
+}
