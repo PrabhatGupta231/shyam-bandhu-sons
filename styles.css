@@ -4726,3 +4726,25 @@ video.reel-video-element {
   justify-content: center !important;
   box-sizing: border-box !important;
 }
+
+/* ==========================================================================
+   BUG 1 — DEFINITIVE FIX: Hide hero image-slider + divider on mobile
+   The .hero-video-section (cinematic video card) already serves as the full
+   mobile hero with both CTAs. The .hero-section (image slider) uses
+   position:absolute children inside a height:auto parent — on mobile this
+   collapses the slider-track to 0px, causing hero-actions buttons to leak
+   out as plain block elements below the dark video card, appearing as
+   duplicate "EXPLORE COLLECTIONS / GET STORE DIRECTIONS" buttons and the
+   "✦ SIGNATURE SHOWROOM COLLECTIONS ✦" divider pill to float above them.
+   ========================================================================== */
+@media (max-width: 992px) {
+  /* Hide the gold ornamental divider pill between sections */
+  .hero-transition-divider {
+    display: none !important;
+  }
+
+  /* Hide the entire image-slider hero section on mobile/tablet */
+  .hero-section {
+    display: none !important;
+  }
+}
