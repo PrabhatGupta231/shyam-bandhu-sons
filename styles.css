@@ -3717,15 +3717,19 @@ textarea {
   }
   .video-hero-overlay {
     background: linear-gradient(180deg, 
-      rgba(8, 7, 6, 0.88) 0%, 
-      rgba(8, 7, 6, 0.72) 40%, 
-      rgba(8, 7, 6, 0.88) 100%) !important;
+      rgba(8, 7, 6, 0.45) 0%, 
+      rgba(8, 7, 6, 0.30) 40%, 
+      rgba(8, 7, 6, 0.55) 100%) !important;
+    background-image: none !important;
   }
   .video-side-card {
     padding: 1.5rem 1.25rem !important;
     margin: 0 !important;
     max-width: 100% !important;
     border-radius: var(--radius-sm) !important;
+    background: rgba(10, 8, 6, 0.55) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
   }
   .video-card-title {
     font-size: 1.65rem !important;
@@ -4746,5 +4750,18 @@ video.reel-video-element {
   /* Hide the entire image-slider hero section on mobile/tablet */
   .hero-section {
     display: none !important;
+  }
+}
+
+/* ==========================================================================
+   FIX: Make hero background video visible on mobile
+   - Boost video brightness and remove scale gap
+   - Reduce overlay opacity from 0.88 → 0.35
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero-bg-video {
+    transform: translate(-50%, -50%) scale(1) translateZ(0) !important;
+    filter: contrast(1.05) saturate(1.1) brightness(1.05) !important;
+    object-position: center center !important;
   }
 }
