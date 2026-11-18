@@ -642,7 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     grid.innerHTML = items.map((reel, index) => {
-      const isVideoFile = (u) => u && (/\.(mp4|webm|mov)(\?.*)?$/i.test(u) || u.startsWith('public/videos/') || u.startsWith('/api/reels/stream/'));
+      const isVideoFile = (u) => u && (/\.(mp4|webm|mov)(\?.*)?$/i.test(u) || u.startsWith('public/videos/') || u.startsWith('/public/videos/') || u.startsWith('/api/reels/stream/'));
       const hasDirectVideo = Boolean(reel.directVideoUrl && isVideoFile(reel.directVideoUrl));
       const categoryLabel = (reel.category || 'bridal').toUpperCase();
       const whatsappMsg = `Hello Shyam Bandhu & Sons (By : Raj Kamal), I would like to enquire about this Showroom Reel: "${reel.title || 'Haute Couture Look'}"`;
@@ -685,11 +685,34 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }).join('');
 
-    // Handle video load errors gracefully without substituting another reel's video
+    // Handle video load errors — fall back to embedUrl iframe so card is never a black box
     grid.querySelectorAll('.reel-video-element').forEach(vid => {
+      const card = vid.closest('.reel-card');
+      const reelId = card ? card.getAttribute('data-reel-id') : null;
+      const reelData = reelId ? items.find(r => r.id === reelId) : null;
+
       vid.addEventListener('error', (e) => {
         console.warn('Reel video could not be played:', vid.currentSrc || vid.src);
+        // Hide mute btn since video failed
+        const muteBtn = card ? card.querySelector('.reel-mute-btn') : null;
+        if (muteBtn) muteBtn.style.display = 'none';
+        // Fall back to embed iframe if available
+        if (reelData && reelData.embedUrl) {
+          const embedWrap = document.createElement('div');
+          embedWrap.className = 'reel-embed-frame-wrap';
+          embedWrap.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;overflow:hidden;background:#000;z-index:1;';
+          embedWrap.innerHTML = `<iframe src="${reelData.embedUrl}" scrolling="no" frameborder="0" allowtransparency="true" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;transform:scale(1.38);transform-origin:center center;pointer-events:none;"></iframe>`;
+          vid.style.display = 'none';
+          card.insertBefore(embedWrap, vid);
+        }
       });
+
+      // Also check after a short delay if video is stuck (e.g. readyState 0 = nothing loaded)
+      setTimeout(() => {
+        if (vid.readyState === 0 && vid.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) {
+          vid.dispatchEvent(new Event('error'));
+        }
+      }, 3000);
     });
 
     // Attach Mute/Unmute listeners
