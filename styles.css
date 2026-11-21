@@ -3794,33 +3794,13 @@ textarea {
     box-sizing: border-box !important;
   }
 
-  /* Floating WhatsApp Button: Neatly tucked in bottom-right corner */
-  .floating-whatsapp-btn {
-    width: auto !important;
-    max-width: fit-content !important;
-    position: fixed !important;
-    bottom: 16px !important;
-    right: 16px !important;
-    padding: 10px 16px !important;
-    font-size: 13px !important;
-    z-index: 1000 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Strict Mobile Form & Card Containment */
+  /* Strict Mobile Form & Card Containment (scoped to avoid breaking small UI elements) */
   form,
   .form-group,
   input,
   select,
   textarea,
-  button,
-  .btn,
-  .appointment-card,
-  [class*="modal"],
-  [class*="card"] {
+  .appointment-card {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
@@ -3920,10 +3900,10 @@ textarea {
     box-sizing: border-box !important;
   }
 
-  /* ALL Multi-Column Grids -> Clean 1-Column Layout */
+  /* Multi-Column Grids -> Proper mobile layout (2-col catalog in separate block) */
   .catalog-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.25rem !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
   }
 
   .catalog-card {
@@ -4185,11 +4165,6 @@ textarea {
   .showroom-badge-locations {
     font-size: 0.7rem !important;
   }
-
-  .floating-whatsapp-btn {
-    bottom: 16px !important;
-    right: 14px !important;
-  }
 }
 
 /* 5. Ultra-Compact Mobile Screens (max-width: 380px) */
@@ -4243,17 +4218,6 @@ textarea {
 
   .showroom-badge-locations {
     display: none !important;
-  }
-
-  .floating-whatsapp-btn {
-    bottom: 16px !important;
-    right: 10px !important;
-    padding: 10px 14px !important;
-    font-size: 12px !important;
-  }
-
-  .floating-whatsapp-btn span {
-    font-size: 0.75rem !important;
   }
 }
 
@@ -4330,9 +4294,8 @@ textarea {
 
 @media (max-width: 580px) {
   .reels-showcase-grid {
-    grid-template-columns: 1fr;
-    max-width: 320px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 }
 
@@ -4763,5 +4726,1334 @@ video.reel-video-element {
     transform: translate(-50%, -50%) scale(1) translateZ(0) !important;
     filter: contrast(1.05) saturate(1.1) brightness(1.05) !important;
     object-position: center center !important;
+  }
+}
+
+/* ==========================================================================
+   ULTRA-LUXURY BESPOKE MOBILE EXPERIENCE (≤ 768px)
+   Inspired by Sabyasachi / Aza Haute Couture App Design
+   ========================================================================== */
+@media (max-width: 768px) {
+
+  /* ── 0. GENERAL & PREVENT HORIZONTAL SCROLL ── */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  body {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Anchor scroll offset for fixed header */
+  section,
+  [id] {
+    scroll-margin-top: 65px;
+  }
+
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Hide unnecessary desktop elements on mobile */
+  .announcement-bar,
+  .utility-bar,
+  .main-nav,
+  .hero-transition-divider,
+  .hero-section,
+  .hero-showroom-badge,
+  .header-location-badge,
+  .brand-tagline {
+    display: none !important;
+  }
+
+  /* ── 1. SLEEK MOBILE STICKY HEADER ── */
+  .site-header {
+    order: 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    padding: 0 14px !important;
+    background: rgba(10, 8, 6, 0.92) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(197, 168, 128, 0.25) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+    z-index: 1000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+  }
+
+  .header-main-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 60px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Left: Crisp white Hamburger Menu icon (☰) */
+  .header-left-col {
+    display: flex !important;
+    align-items: center !important;
+    flex: 0 0 36px !important;
+    width: 36px !important;
+    z-index: 2 !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important;
+    color: #FFFFFF !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+  }
+
+  .mobile-menu-btn svg {
+    width: 22px !important;
+    height: 22px !important;
+    stroke: #FFFFFF !important;
+  }
+
+  /* Center: White/Gold Crown + 'SB' SVG emblem and 'Shyam Bandhu & Sons' cleanly centered on one line (font-size: 20px;) */
+  .brand-logo-container {
+    position: static !important;
+    transform: none !important;
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    max-width: calc(100% - 84px) !important;
+  }
+
+  .brand-logo-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+  }
+
+  .brand-main-lockup {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+
+  .brand-emblem-svg,
+  .brand-emblem-img {
+    height: 22px !important;
+    width: auto !important;
+    max-width: 22px !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+    filter: drop-shadow(0 1px 4px rgba(255, 255, 255, 0.25)) !important;
+  }
+
+  .brand-text-block {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+  }
+
+  .brand-name-single,
+  .brand-name-top {
+    font-family: 'Aladin', cursive !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.3px !important;
+    line-height: 1.05 !important;
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    white-space: nowrap !important;
+    display: block !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .brand-byline {
+    font-family: 'Aladin', cursive !important;
+    font-size: 10px !important;
+    letter-spacing: 0.5px !important;
+    color: var(--accent-gold) !important;
+    -webkit-text-fill-color: var(--accent-gold) !important;
+    line-height: 1 !important;
+    margin-top: 1px !important;
+    display: block !important;
+  }
+
+  /* Right: Compact Calendar/Visit icon button (36px x 36px) */
+  .header-right-action {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex: 0 0 36px !important;
+    width: 36px !important;
+    z-index: 2 !important;
+  }
+
+  .btn-book-visit-header {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    padding: 0 !important;
+    border-radius: var(--radius-sm) !important;
+    background: linear-gradient(135deg, var(--accent-gold) 0%, #A88653 100%) !important;
+    color: #12100E !important;
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(197, 168, 128, 0.35) !important;
+  }
+
+  .btn-book-visit-header span {
+    display: none !important;
+  }
+
+  .btn-book-visit-header svg {
+    width: 17px !important;
+    height: 17px !important;
+    margin: 0 !important;
+    stroke: #12100E !important;
+  }
+
+  /* ── 2. FULL-BLEED EDITORIAL MOBILE HERO (ORDER 1) ── */
+  #showroom-reel-section,
+  .hero-video-section {
+    order: 1 !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: 82vh !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #090706 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    overflow: hidden !important;
+    border: none !important;
+  }
+
+  .video-container-wrap {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 82vh !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    overflow: hidden !important;
+    background: #090706 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .hero-bg-video {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    z-index: 1 !important;
+    filter: brightness(0.95) contrast(1.05) !important;
+  }
+
+  /* Rich bottom-up luxury dark gradient */
+  .video-hero-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(180deg, rgba(10, 8, 6, 0.35) 0%, rgba(10, 8, 6, 0.55) 45%, #090706 100%) !important;
+    background-image: linear-gradient(180deg, rgba(10, 8, 6, 0.35) 0%, rgba(10, 8, 6, 0.55) 45%, #090706 100%) !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+  }
+
+  .video-bottom-blend {
+    display: none !important; /* Seamless gradient handles fade without white gaps */
+  }
+
+  /* Align hero typography cleanly at bottom-left */
+  .video-content-wrapper {
+    position: relative !important;
+    z-index: 5 !important;
+    width: 100% !important;
+    padding: 75px 20px 28px !important; /* Clearance for 60px fixed header */
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: flex-start !important;
+    box-sizing: border-box !important;
+    min-height: 82vh !important;
+  }
+
+  .video-side-card {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    text-align: left !important;
+    animation: none !important;
+  }
+
+  /* Compact eyebrow badge */
+  .video-badge-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background: rgba(22, 17, 15, 0.75) !important;
+    border: 1px solid rgba(212, 175, 55, 0.45) !important;
+    padding: 4px 10px !important;
+    border-radius: 9999px !important;
+    margin-bottom: 10px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .video-badge-pill .live-dot-pulse {
+    display: inline-block !important;
+    width: 6px !important;
+    height: 6px !important;
+  }
+
+  .video-badge-pill .badge-text {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    color: #DFBD69 !important;
+    text-transform: uppercase !important;
+  }
+
+  /* Crisp serif heading (font-size: 28px; line-height: 1.2;): Bridal & Haute Couture */
+  .video-card-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    margin: 0 0 8px 0 !important;
+    text-align: left !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .hero-title-prefix {
+    display: none !important;
+  }
+
+  .video-title-highlight {
+    background: linear-gradient(135deg, #FFF1D2 0%, #DFBD69 45%, #C5A880 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: inline !important;
+  }
+
+  /* Short, elegant 2-line subtitle */
+  .video-card-desc {
+    font-size: 13.5px !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    line-height: 1.45 !important;
+    margin: 0 0 16px 0 !important;
+    text-align: left !important;
+    max-width: 100% !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Hide the 3 bulky feature pills on mobile */
+  .video-features-row {
+    display: none !important;
+  }
+
+  /* Action buttons: stacked cleanly */
+  .video-actions-row {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+    margin-top: 4px !important;
+  }
+
+  .btn-video-primary {
+    width: 100% !important;
+    padding: 13px 20px !important;
+    font-size: 12.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    justify-content: center !important;
+    border-radius: var(--radius-sm) !important;
+    background: linear-gradient(135deg, #DFBD69 0%, #C5A880 100%) !important;
+    color: #12100E !important;
+    box-shadow: 0 4px 15px rgba(223, 189, 105, 0.35) !important;
+    border: none !important;
+    box-sizing: border-box !important;
+  }
+
+  .btn-video-outline {
+    width: 100% !important;
+    padding: 12px 20px !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    justify-content: center !important;
+    border-radius: var(--radius-sm) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    color: #FFFFFF !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Tiny mute/unmute icon (34px circle) tucked in top-right corner */
+  .video-control-floater {
+    position: absolute !important;
+    top: 74px !important;
+    right: 16px !important;
+    bottom: auto !important;
+    left: auto !important;
+    z-index: 25 !important;
+    display: flex !important;
+    gap: 8px !important;
+  }
+
+  #btn-toggle-video-sound {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    background: rgba(10, 8, 6, 0.75) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(197, 168, 128, 0.45) !important;
+    color: #FFFFFF !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #btn-toggle-video-sound .ctrl-label {
+    display: none !important;
+  }
+
+  #sound-icon {
+    font-size: 14px !important;
+    line-height: 1 !important;
+  }
+
+  #btn-toggle-video-play {
+    display: none !important;
+  }
+
+  /* ── 3. SIGNATURE COLLECTIONS (ORDER 2) ── */
+  #collections-section,
+  .catalog-section {
+    order: 2 !important;
+    padding: 3rem 0 3.5rem !important;
+    background-color: var(--bg-secondary) !important;
+    border-top: none !important;
+  }
+
+  .catalog-section .section-header {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .catalog-section .section-pre-title {
+    font-size: 11px !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .catalog-section .section-main-title {
+    font-size: 24px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .catalog-section .section-subtitle {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Swipeable luxury category tabs */
+  .family-tabs-bar {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 8px !important;
+    padding: 4px 16px 12px !important;
+    margin: 0 -16px 0.75rem !important;
+    justify-content: flex-start !important;
+  }
+
+  .family-tabs-bar::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .family-tab-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    border-radius: var(--radius-pill) !important;
+  }
+
+  /* Swipeable subcategory chips */
+  .subcat-chips-bar {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 6px !important;
+    padding: 2px 16px 10px !important;
+    margin: 0 -16px 1.25rem !important;
+    justify-content: flex-start !important;
+  }
+
+  .subcat-chips-bar::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .subcat-chip-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    padding: 5px 12px !important;
+    font-size: 11px !important;
+  }
+
+  /* 2-Column Luxury Catalog with 4:5 portrait photography */
+  .catalog-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .catalog-card {
+    background: #FFFFFF !important;
+    border: 1px solid var(--border-light) !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  .card-img-box {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 4 / 5 !important;
+    height: auto !important;
+    overflow: hidden !important;
+    background-color: var(--bg-ivory) !important;
+  }
+
+  .card-img-primary {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  .card-status-badge {
+    top: 6px !important;
+    left: 6px !important;
+    font-size: 8.5px !important;
+    padding: 2px 6px !important;
+    border-radius: 3px !important;
+  }
+
+  .card-subcat-badge {
+    bottom: 6px !important;
+    left: 6px !important;
+    font-size: 8.5px !important;
+    padding: 2px 6px !important;
+    border-radius: 3px !important;
+  }
+
+  .card-info {
+    padding: 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+  }
+
+  .card-title {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+    line-height: 1.3 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    min-height: 2.6em !important;
+  }
+
+  .card-fabric {
+    font-size: 11px !important;
+    color: var(--text-muted) !important;
+    margin-bottom: 6px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .card-sizes-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    margin-bottom: 8px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .card-sizes-row span {
+    font-size: 9px !important;
+  }
+
+  .size-pill {
+    font-size: 9px !important;
+    padding: 1px 4px !important;
+  }
+
+  .card-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    margin-top: auto !important;
+    padding-top: 8px !important;
+  }
+
+  .btn-card-whatsapp {
+    width: 100% !important;
+    padding: 7px 8px !important;
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    justify-content: center !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+  }
+
+  .btn-card-details {
+    width: 100% !important;
+    padding: 6px 8px !important;
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    justify-content: center !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ── 4. SHOWROOM REELS (ORDER 3) ── */
+  #showroom-reels-section,
+  .showroom-reels-section {
+    order: 3 !important;
+    padding: 3rem 0 2.5rem !important;
+    background-color: #090706 !important;
+    border-top: 1px solid rgba(212, 175, 55, 0.15) !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15) !important;
+    overflow: hidden !important;
+  }
+
+  .showroom-reels-section .section-header {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .showroom-reels-section .section-pre-title {
+    font-size: 10px !important;
+    letter-spacing: 0.16em !important;
+    color: var(--accent-gold) !important;
+  }
+
+  /* Crisp ivory #FAF8F5 heading */
+  .showroom-reels-section .section-main-title {
+    color: #FAF8F5 !important;
+    -webkit-text-fill-color: #FAF8F5 !important;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    margin-bottom: 6px !important;
+  }
+
+  .showroom-reels-section .section-subtitle {
+    color: #C8C0B5 !important;
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    text-align: center !important;
+    max-width: 92% !important;
+    margin: 0 auto 1.25rem !important;
+  }
+
+  /* Swipeable reels filter pills */
+  .reels-filter-bar {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 8px !important;
+    padding: 0 16px 1rem !important;
+    margin: 0 -16px !important;
+    justify-content: flex-start !important;
+    width: calc(100% + 32px) !important;
+    box-sizing: border-box !important;
+  }
+
+  .reels-filter-bar::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .reel-filter-pill {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    font-size: 11.5px !important;
+    padding: 6px 14px !important;
+    border-radius: 9999px !important;
+  }
+
+  /* Horizontal swipeable 9:16 vertical reel cards */
+  .reels-showcase-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 14px !important;
+    padding: 4px 16px 1.5rem !important;
+    margin: 0 -16px !important;
+    width: calc(100% + 32px) !important;
+    box-sizing: border-box !important;
+  }
+
+  .reels-showcase-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .reel-card {
+    flex: 0 0 220px !important;
+    width: 220px !important;
+    max-width: 220px !important;
+    height: 391px !important; /* 220 * 16 / 9 = 391px */
+    aspect-ratio: 9 / 16 !important;
+    scroll-snap-align: center !important;
+    position: relative !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    background: #000000 !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7) !important;
+  }
+
+  /* Full-height object-fit cover video */
+  .reel-card video,
+  .reel-card .reel-video-element,
+  video.reel-video-element {
+    position: absolute !important;
+    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    z-index: 1 !important;
+    display: block !important;
+  }
+
+  .reel-card-gradient {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.92) 100%) !important;
+    pointer-events: none !important;
+  }
+
+  .reel-cat-badge {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    z-index: 10 !important;
+    font-size: 9px !important;
+    padding: 3px 8px !important;
+  }
+
+  .reel-mute-btn {
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    width: 30px !important;
+    height: 30px !important;
+    z-index: 10 !important;
+    font-size: 12px !important;
+  }
+
+  .reel-bottom-card-overlay {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 3 !important;
+    padding: 1rem 12px 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .reel-card-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    -webkit-line-clamp: 2 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9) !important;
+  }
+
+  /* Compact WhatsApp CTA */
+  .btn-reel-whatsapp {
+    height: 36px !important;
+    padding: 0 10px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+    border-radius: 6px !important;
+    background: linear-gradient(135deg, #25D366 0%, #1EBE5D 100%) !important;
+    color: #FFFFFF !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35) !important;
+  }
+
+  /* ── 5. SHOWROOM AMBIANCE & CUSTOMER DIARIES (ORDER 4) ── */
+  #gallery-section,
+  .gallery-section {
+    order: 4 !important;
+    padding: 3rem 0 !important;
+    background-color: var(--bg-primary) !important;
+  }
+
+  .gallery-section .section-header {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .gallery-section .section-pre-title {
+    font-size: 11px !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .gallery-section .section-main-title {
+    font-size: 24px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .gallery-section .section-subtitle {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* Clean horizontal wrapping filter pills */
+  .gallery-filter-tabs-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 0.5rem 0 1.25rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .gallery-filter-btn {
+    border-radius: 9999px !important;
+    padding: 6px 14px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* 2-column editorial photo grid */
+  .masonry-grid {
+    column-count: 2 !important;
+    column-gap: 10px !important;
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .masonry-item {
+    margin-bottom: 10px !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    break-inside: avoid !important;
+  }
+
+  .masonry-img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  .masonry-overlay {
+    padding: 10px !important;
+  }
+
+  .masonry-title {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+  }
+
+  .btn-view-look {
+    font-size: 10px !important;
+    padding: 5px 10px !important;
+  }
+
+  .instagram-banner-cta {
+    padding: 1.75rem 1.25rem !important;
+    border-radius: 8px !important;
+  }
+
+  .instagram-title {
+    font-size: 20px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .instagram-desc {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .btn-instagram-follow {
+    width: 100% !important;
+    padding: 11px 16px !important;
+    font-size: 12px !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ── 6. OUR FLAGSHIP SHOWROOMS & STORE VISIT BOOKING (ORDER 5 & 6) ── */
+  #flagship-showrooms,
+  .flagship-showrooms-section {
+    order: 5 !important;
+    padding: 3rem 0 2.5rem !important;
+    background: linear-gradient(180deg, #FCFAF6 0%, #F7F3EA 100%) !important;
+  }
+
+  .flagship-header {
+    margin-bottom: 1.75rem !important;
+  }
+
+  .flagship-header .section-main-title {
+    font-size: 24px !important;
+  }
+
+  .flagship-header .section-subtitle {
+    font-size: 13px !important;
+  }
+
+  .flagship-showcase-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Clean showroom exterior image with NO overlapping text pills on top of photo */
+  .flagship-hero-card {
+    height: 220px !important;
+    min-height: 220px !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    border: 1px solid var(--border-gold) !important;
+    box-shadow: var(--shadow-sm) !important;
+    position: relative !important;
+  }
+
+  .flagship-image-wrapper {
+    height: 100% !important;
+    min-height: 100% !important;
+    width: 100% !important;
+  }
+
+  .flagship-main-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transform: none !important;
+  }
+
+  /* Completely eliminate overlapping badges and caption pills on mobile */
+  .flagship-badge-pill,
+  .flagship-img-caption,
+  .flagship-img-overlay {
+    display: none !important;
+  }
+
+  /* Followed cleanly by Tedhi Puliya & Nakkhas branch cards */
+  .flagship-branches-col {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .branch-card-modern {
+    padding: 1.25rem !important;
+    border-radius: 8px !important;
+    background: #FFFFFF !important;
+    border: 1px solid var(--border-light) !important;
+    box-shadow: var(--shadow-sm) !important;
+  }
+
+  .branch-badge-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 6px !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .branch-pill-primary {
+    font-size: 10px !important;
+    padding: 3px 8px !important;
+  }
+
+  .branch-timing-pill {
+    font-size: 11px !important;
+  }
+
+  .branch-card-name {
+    font-size: 18px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .branch-card-address {
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+    margin-bottom: 0.85rem !important;
+  }
+
+  .branch-card-highlights {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 5px !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .branch-feat {
+    font-size: 10.5px !important;
+    padding: 3px 7px !important;
+  }
+
+  .branch-card-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .btn-branch-call,
+  .btn-branch-whatsapp,
+  .btn-branch-map {
+    width: 100% !important;
+    padding: 10px 14px !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    justify-content: center !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+  }
+
+  .showroom-pillars-strip {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 1.25rem !important;
+    gap: 1rem !important;
+  }
+
+  /* STORE VISIT BOOKING & CONTACT (ORDER 6) */
+  #store-location-section,
+  .contact-section {
+    order: 6 !important;
+    padding: 3rem 0 !important;
+    background-color: var(--bg-primary) !important;
+  }
+
+  .contact-section .section-main-title {
+    font-size: 24px !important;
+  }
+
+  .contact-layout-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  .map-embed-wrapper {
+    width: 100% !important;
+  }
+
+  .showrooms-dual-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 1.25rem !important;
+    gap: 1rem !important;
+  }
+
+  .showroom-branch-card {
+    padding: 1.15rem !important;
+  }
+
+  .btn-branch-directions {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 10px !important;
+    font-size: 11px !important;
+    box-sizing: border-box !important;
+  }
+
+  .store-hours-bar {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    padding: 1rem 1.25rem !important;
+  }
+
+  /* In-Store Appointment Form */
+  .appointment-card {
+    padding: 1.5rem 1.15rem !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  .appointment-form-title {
+    font-size: 20px !important;
+  }
+
+  .appointment-form-desc {
+    font-size: 12.5px !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .form-grid-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .btn-submit-appointment {
+    width: 100% !important;
+    padding: 13px 16px !important;
+    font-size: 12px !important;
+    letter-spacing: 0.1em !important;
+    border-radius: 4px !important;
+    text-align: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ── 7. PERKS, ARTICLES & FOOTER (ORDER 7, 8, 9) ── */
+  .showroom-perks-section {
+    order: 7 !important;
+    padding: 2.25rem 0 !important;
+  }
+
+  .perks-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  #articles-section,
+  .articles-section {
+    order: 8 !important;
+    padding: 3rem 0 !important;
+  }
+
+  .articles-section .section-main-title {
+    font-size: 24px !important;
+  }
+
+  .articles-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+  }
+
+  .site-footer {
+    order: 9 !important;
+    padding: 3rem 0 2rem !important;
+  }
+
+  .footer-top-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  .footer-brand-lockup {
+    justify-content: center !important;
+  }
+
+  .footer-name-top {
+    font-size: 24px !important;
+  }
+
+  .footer-name-bottom {
+    font-size: 15px !important;
+    align-self: center !important;
+  }
+
+  .footer-tagline {
+    text-align: center !important;
+    font-size: 9.5px !important;
+  }
+
+  .footer-about {
+    text-align: center !important;
+    font-size: 13px !important;
+  }
+
+  /* ── 8. COMPACT FLOATING WHATSAPP ICON (CIRCULAR 50px BUTTON) ── */
+  .floating-whatsapp-btn {
+    position: fixed !important;
+    bottom: 18px !important;
+    right: 16px !important;
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    max-width: 50px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #25D366 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45) !important;
+    z-index: 1000 !important;
+    border: none !important;
+    outline: none !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  .floating-whatsapp-btn:hover {
+    transform: scale(1.06) !important;
+    background: #1EBE5D !important;
+  }
+
+  .floating-whatsapp-btn span {
+    display: none !important;
+  }
+
+  .floating-whatsapp-btn svg {
+    width: 26px !important;
+    height: 26px !important;
+    margin: 0 !important;
+    display: block !important;
+    fill: currentColor !important;
+  }
+
+  /* ── 9. MODALS & TOAST ON MOBILE ── */
+  .modal-overlay {
+    padding: 0 !important;
+  }
+
+  .detail-modal-card {
+    max-width: 100% !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+    grid-template-columns: 1fr !important;
+    overflow-y: auto !important;
+  }
+
+  .modal-gallery-col {
+    height: 300px !important;
+    min-height: 280px !important;
+  }
+
+  .modal-details-col {
+    padding: 1.5rem 1.15rem !important;
+  }
+
+  .lightbox-content-box {
+    width: 100vw !important;
+    height: 100vh !important;
+    border-radius: 0 !important;
+    border: none !important;
+  }
+
+  .toast-container {
+    bottom: 5.5rem !important;
+    left: 16px !important;
+    right: 16px !important;
   }
 }

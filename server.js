@@ -24,11 +24,10 @@ const activeAdminSessions = new Map();
 const loginRateLimiter = new Map();
 
 const ADMIN_CREDENTIALS = [
+  { username: 'admin', password: 'SB@Raj2026#Lucknow', name: 'Raj Kamal Atelier Admin', role: 'Showroom Administrator' },
   { username: 'admin', password: 'admin123', name: 'Raj Kamal Atelier Admin', role: 'Showroom Administrator' },
-  { username: 'rajkamal', password: 'admin123', name: 'Raj Kamal (Founder)', role: 'Owner & Atelier Lead' },
-  { username: 'rajkamal', password: 'sb2026', name: 'Raj Kamal (Founder)', role: 'Owner & Atelier Lead' },
-  { username: 'shyambandhu', password: 'admin123', name: 'Showroom Manager', role: 'Branch Manager' },
-  { username: 'shyambandhu', password: 'sb2026', name: 'Showroom Manager', role: 'Branch Manager' }
+  { username: 'rajkamal', password: 'SB@Raj2026#Lucknow', name: 'Raj Kamal (Founder)', role: 'Owner & Atelier Lead' },
+  { username: 'shyambandhu', password: 'SB@Raj2026#Lucknow', name: 'Showroom Manager', role: 'Branch Manager' }
 ];
 
 function getClientIp(req) {

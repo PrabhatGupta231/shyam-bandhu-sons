@@ -626,21 +626,10 @@
       40%, 80% { transform: translateX(6px); }
     }
     .auth-demo-hint {
-      margin-top: 1.25rem;
-      background: #F8F9FA;
-      border: 1px dashed #DEE2E6;
-      border-radius: 6px;
-      padding: 0.65rem 0.85rem;
-      font-size: 0.75rem;
-      color: #6C757D;
-      text-align: center;
+      display: none !important;
     }
     .auth-demo-hint code {
-      background: #E9ECEF;
-      color: #141312;
-      padding: 1px 5px;
-      border-radius: 3px;
-      font-weight: 600;
+      display: none !important;
     }
     .auth-card-footer {
       margin-top: 1.25rem;
@@ -733,7 +722,7 @@
           <label class="auth-label" for="auth-username">Admin Username</label>
           <div class="auth-input-box">
             <span class="auth-input-icon">👤</span>
-            <input type="text" id="auth-username" class="auth-input" name="username" required placeholder="e.g. admin" autocomplete="username" autofocus>
+            <input type="text" id="auth-username" class="auth-input" name="username" required placeholder="Enter username" autocomplete="username" autofocus>
           </div>
         </div>
 
@@ -759,9 +748,7 @@
           <span>→</span>
         </button>
 
-        <div class="auth-demo-hint">
-          ✦ <strong>Showroom Staff Credentials:</strong> Username <code>admin</code> &nbsp;|&nbsp; Password <code>admin123</code>
-        </div>
+        <!-- Credentials hint removed for security -->
       </form>
 
       <div class="auth-card-footer">

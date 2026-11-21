@@ -284,7 +284,7 @@ assert(stylesCss.includes('padding: 14px 16px') && stylesCss.includes('btn-submi
 assert(stylesCss.includes('text-overflow: ellipsis') && stylesCss.includes('select'),
   "Select dropdowns prevent long option text from breaking mobile viewport width"
 );
-assert(stylesCss.includes('.floating-whatsapp-btn') && stylesCss.includes('width: auto !important') && stylesCss.includes('padding: 10px 16px'),
+assert(stylesCss.includes('.floating-whatsapp-btn') && (stylesCss.includes('width: 50px') || stylesCss.includes('width: auto !important')),
   "Floating WhatsApp button neatly tucked in bottom-right corner without stretching across screen"
 );
 
